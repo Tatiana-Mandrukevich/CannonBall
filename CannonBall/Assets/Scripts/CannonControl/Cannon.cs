@@ -1,11 +1,12 @@
-using System;
+using BallControl;
 using UnityEngine;
 
 namespace CannonControl
 {
     public class Cannon : MonoBehaviour
     {
-        [SerializeField] private GameObject _prefab;
+        [SerializeField] private float _power = 20f;
+        [SerializeField] private BallPool _ballPool;
         [SerializeField] private InputSystem _input;
         [SerializeField] private Transform _spawnPoint;
 
@@ -21,7 +22,9 @@ namespace CannonControl
 
         private void OnFirePressed()
         {
-            Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+            var ball = _ballPool.Get();
+            ball.Setup(_spawnPoint.position, _spawnPoint.rotation);
+            ball.Apply(_spawnPoint.forward * _power);
         }
     }
 }
