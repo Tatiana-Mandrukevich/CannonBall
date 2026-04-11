@@ -22,6 +22,7 @@ namespace TargetControl
 
         private void OnHit()
         {
+            Hit?.Invoke();
             _model.AnimateHit();
         }
 

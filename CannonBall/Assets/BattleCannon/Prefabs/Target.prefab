@@ -186,5 +186,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241e189ff403494ba2db065da013a45a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TargetControl.Target
-  _model: {fileID: 0}
+  _model: {fileID: 4743454637303512994}
   _collider: {fileID: 6153976454731765366}
