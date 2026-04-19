@@ -10,6 +10,12 @@ namespace BallControl
         [SerializeField] private Ball _prefab;
         
         private Queue<Ball> _pool = new();
+        private WaitForSeconds _waitForSeconds;
+
+        void Awake()
+        {
+            _waitForSeconds = new WaitForSeconds(_lifeTime);
+        }
 
         public Ball Get()
         {
@@ -28,7 +34,7 @@ namespace BallControl
         
         private IEnumerator Deactivate(Ball ball)
         {
-            yield return new WaitForSeconds(_lifeTime);    
+            yield return _waitForSeconds;    
             _pool.Enqueue(ball);
             ball.gameObject.SetActive(false);
         }
