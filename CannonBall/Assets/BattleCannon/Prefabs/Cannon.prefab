@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5514593902571081739}
+  - component: {fileID: 2890606754404807680}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -34,6 +35,22 @@ Transform:
   - {fileID: 1926832954993307659}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2890606754404807680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3452370117668289233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a6fdff010649b4b55343ddf8348a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonControl.Cannon
+  _power: 100
+  _prefab: {fileID: 3933838197613267077, guid: 30f77fd95cef34cb38ebec5c66729b00, type: 3}
+  _input: {fileID: 0}
+  _spawnPoint: {fileID: 4625601756446646190}
 --- !u!1 &3928979312634474989
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +141,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4863070930121896421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4625601756446646190}
+  m_Layer: 0
+  m_Name: BallSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4625601756446646190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863070930121896421}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1591702698268133029}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6018802414341455167
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3767339838872001254}
   - component: {fileID: 2600376014618093157}
+  - component: {fileID: 238975905955823605}
   m_Layer: 0
   m_Name: CannonPivot
   m_TagString: Untagged
@@ -169,7 +218,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf0450aad034c4a91822a51a038e6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CannonControl.CannonPivot
+  _limits:
+    VerticalMin: -25
+    VerticalMax: 5
+    HorizontalMin: -60
+    HorizontalMax: 60
+--- !u!114 &238975905955823605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6018802414341455167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f96fd7da714477f92041fafcfff48d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CannonControl.CannonPivotReducer
+  _factor: {x: 20, y: 20}
   _input: {fileID: 0}
+  _pivot: {fileID: 2600376014618093157}
 --- !u!1 &7453457238881212937
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +268,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.31, z: 0.309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4625601756446646190}
   m_Father: {fileID: 3767339838872001254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2757346180143815982
